@@ -21,11 +21,16 @@ const AddVideoForm = ({ setVideoData }) => {
       timeSent: new Date().toLocaleDateString(),
     };
 
-    newVideoData.title && newVideoData.url.includes("www.youtube.com/watch?v=")
-      ? setVideoData((videos) => videos.concat(newVideoData))
-      : alert("Please fill all the sections");
-    // setTitle('');
-    // setUrl('')
+    if (newVideoData.title && newVideoData.url) {
+      if (newVideoData.url.includes("www.youtube.com/watch?v=")) {
+        setVideoData((videos) => videos.concat(newVideoData));
+      } else {
+        alert("Invalid URL format. Please provide a valid youtube url.")
+      }
+    } else {
+      alert("Please fill all the sections")
+    }
+    
   };
   return (
     <div>

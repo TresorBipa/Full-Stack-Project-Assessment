@@ -11,6 +11,7 @@ function YouTubeEmbed({video}) {
       alt={`video ${video.title}`}
       allow="accelerometer; autoplay; clipboard-write; encrypted-media;"
     />
+   
   );
 }
 

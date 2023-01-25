@@ -13,10 +13,10 @@ import Video from "./Video";
 
 function App() {
   const [addVideo, setAddVideo] = useState(false);
-  //
+  
   const [videoData, setVideoData] = useState(dataVideos);
   const [videosFilter, setVideosFilter] = useState("");
-  //
+  
   videoData.sort((a, b) => b.rating - a.rating)
 
   const addVideoHandler = () => {
@@ -32,8 +32,8 @@ function App() {
   }, [videosFilter]);
 
   return (
-    <div className="App bg-light">
-      <header className="shadow-sm p-3 mb-5 bg-white rounded ">
+    <div className="App bg-white">
+      <header className="shadow-sm p-3 mb-5 bg-white rounded">
         <h1>Video Recommendation</h1>
       </header>
       <Container className=" mt-3">
