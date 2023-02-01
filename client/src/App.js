@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col } from "react-bootstrap";
-
 import AddVideo from "./AddVideo";
 import AddVideoForm from "./AddVideoForm";
-import dataVideos from "./exampleresponse.json";
-
+// import dataVideos from "./exampleresponse.json";
 import Search from "./Search";
 import Video from "./Video";
 
+
 function App() {
+
+  const url = "http//localhost:5000";
+
   const [addVideo, setAddVideo] = useState(false);
   
-  const [videoData, setVideoData] = useState(dataVideos);
+  const [videoData, setVideoData] = useState(url);
   const [videosFilter, setVideosFilter] = useState("");
   
   videoData.sort((a, b) => b.rating - a.rating)
@@ -25,7 +26,7 @@ function App() {
 
   useEffect(() => {
     setVideoData(
-      dataVideos.filter((video) =>
+     url.filter((video) =>
         video.title.toLowerCase().includes(videosFilter.toLowerCase())
       )
     );

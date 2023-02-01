@@ -55,11 +55,11 @@ app.post('/', (req, res) => {
     .query("SELECT * FROM videos WHERE title = $1", [title])
     .then((result) => {
       if (result.rows.length > 0) {
-        return res.status(400).send("Video already exists!");
+        return res.status(400).json("Video already exists!");
       } else {
         pool
           .query("INSERT INTO videos (title, url) VALUES ($1, $2)", [title, url])
-          .then(() => res.send("Video created!"))
+          .then(() => res.json("Video created!"))
           .catch((error) => {
             console.error(error);
             res.status(500).json(error);
@@ -115,4 +115,7 @@ app.delete('/:id', (req, res) => {
  
 
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
+
+app.listen(port, () => {
+  console.log(`Server is Listen in http://localhost:${port}`);
+  });
