@@ -6,7 +6,7 @@ const cors = require("cors");
 app.use(cors());
 
 
-const port = process.env.PORT || 5000;
+// const port = process.env.PORT || 5000;
 
 
 const pool = new Pool({
